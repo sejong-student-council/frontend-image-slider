@@ -4,7 +4,7 @@
     <div class="form-container">
       <label for="ID"><b>ID</b></label>
       <div class="ID">
-        <input type="text" v-model="userInfo" placeholder="Enter ID" name="ID" class="blink-2" required>
+        <input type="text" v-model="userInfo" id="id" placeholder="Enter ID" name="ID" class="blink-2" required>
       </div>
       <label for="psw"><b>Password</b></label>
       <div class="PSW">
@@ -59,7 +59,7 @@
           return this.userInfo = this.userInfo.slice(0,-1);
           }
       },*/
-
+      'userInfo':'isValidateID',
       'password':'isValidatePW',
       'password2':'isValidatePW2'
 
@@ -79,6 +79,13 @@
           console.log('incorrect');
         }
         else{console.log('correct');}
+      },
+      isValidateID(){
+        const reg = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+        if(reg.test(document.getElementById('id').value)) {
+            console.log('fail');
+        }
+        else{console.log('success');}
       }
     }
   }
