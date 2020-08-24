@@ -66,8 +66,11 @@
     },
     methods: {
       isValidatePW(){
-
+        const reg = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
         const passRule= /^[A-Za-z0-9]{6,12}$/;
+        if(reg.test(document.getElementById('pwd').value)) {
+            console.log('fail');
+        }
         if(!passRule.test(document.getElementById('pwd').value)) {
             console.log('fail');
         }
